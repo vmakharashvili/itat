@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from './core/models/users';
 import { ApiService } from './core/services/api.service';
+import { AuthService } from './core/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +11,22 @@ import { ApiService } from './core/services/api.service';
 })
 export class AppComponent implements OnInit {
   title = 'itat-app';
-  data: any[] = [];
+  user: User | undefined;
 
-  constructor(private api: ApiService) {
-  }
+  constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.api.getTableData().subscribe(data => this.data = data);
+    debugger;
+    this.auth.$loggedIn.subscribe(user => {
+      this.user = user;
+      if (!user && !this.auth.isLoggedIn) {
+        this.router.navigate(['login']);
+      }
+    });
+    this.auth.loggedIn().subscribe();
   }
 
-  trackById(index: number, item: any): number {
-    return item.id;
+  logOut(): void {
+    this.auth.logOut();
   }
 }

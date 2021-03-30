@@ -1,0 +1,13 @@
+.cell-item {
+  resize: vertical;
+  border-bottom: 1px solid #ccc;
+  padding:2px;
+  overflow: auto;
+}
+
+.column-item {
+  border-right: 1px solid #ccc;
+  &:first {
+    border-left: 1px solid #ccc;
+  }
+}

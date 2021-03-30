@@ -1,9 +1,10 @@
+<mat-toolbar>
+  <span>Assessment App</span>
+  <span class="example-spacer"></span>
+  <span class="user-name">{{ user?.username }}</span>
+  <button mat-raised-button (click)="logOut()">LogOut</button>
+</mat-toolbar>
+
 <router-outlet></router-outlet>
 
-<div>
-  <div *ngFor="let item of data; trackBy: trackById">
-    <div *ngFor="let row of item | keyvalue">
-      {{ row.value }}
-    </div>
-  </div>
-</div>
+

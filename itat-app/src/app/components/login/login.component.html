@@ -1,0 +1,17 @@
+<div fxLayout="column" class="login-container">
+<h2>Log In</h2>
+
+<div fxFlex fxLayout="column" [formGroup]="form">
+  <mat-form-field>
+    <mat-label>User Name:</mat-label>
+    <input matInput formControlName="username">
+    <mat-error *ngIf="form.get('username')?.errors?.required">Required</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password:</mat-label>
+    <input matInput formControlName="password" type="password">
+    <mat-error *ngIf="form.get('password')?.errors?.required">Required</mat-error>
+  </mat-form-field>
+  <button mat-raised-button (click)="login()">Log In</button>
+</div>
+</div>
