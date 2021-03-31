@@ -4,6 +4,7 @@ import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
 import { Observable, of } from 'rxjs';
 import { getRandomText } from '../utils/randomTextGenerator';
 import { combineAll, map } from 'rxjs/operators';
+import { DataItem } from '../models/data';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +14,12 @@ export class FakeDataService implements InMemoryDbService {
   constructor(private injector: Injector) { }
 
   createDb(reqInfo?: RequestInfo): {} | Observable<{}> | Promise<{}> {
-    debugger;
     const columnsNumber = 100;
     const rowsNumber = 6000;
 
-    const tableData: any[] = [];
+    const tableData: DataItem[] = [];
     for (let r = 0; r < rowsNumber; r++) {
-      const obj = { id: (r + 1) } as any;
+      const obj = { id: (r + 1) } as DataItem;
       for (let c = 1; c < columnsNumber; c++) {
         obj['column' + (c + 1)] = getRandomText();
       }

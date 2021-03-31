@@ -16,7 +16,6 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private auth: AuthService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    debugger;
     request = request.clone({
        setHeaders: {
          authorization: `Bearer ${localStorage.getItem('auth-token')}`
@@ -24,7 +23,6 @@ export class AuthInterceptor implements HttpInterceptor {
     });
 
     return next.handle(request).pipe(catchError((err: any) => {
-      debugger;
       if (err.status === 401) {
         this.auth.logOut();
         throw err;

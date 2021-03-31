@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from './shared/shared.module';
+import { HotTableModule } from '@handsontable/angular';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SharedModule } from './shared/shared.module';
     CoreModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    SharedModule
+    SharedModule,
+    HotTableModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
