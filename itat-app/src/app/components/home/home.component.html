@@ -1,14 +1,5 @@
 <h2>Welcome</h2>
 
-<!-- <div class="table" fxLayout="column">
-  <div *ngFor="let item of data; trackBy: trackById; let i = index" class="column-item" fxLayout="row">
-    <div *ngFor="let row of item | keyvalue" class="cell-item" mwlResizeHandle [resizeEdges]="{ top: true }">
-      {{ i == 0?row.key : row.value }}
-    </div>
-  </div>
-</div> -->
-<!-- <pre>{{ data | json }}</pre> -->
-
 <hot-table class="hot hot-t" [data]="data" [colHeaders]="true" [rowHeaders]="true" [settings]="hotSettings">
 
 </hot-table>

@@ -24,7 +24,6 @@
     "@angular/router": "~11.2.7",
     "@handsontable/angular": "^7.0.0",
     "angular-in-memory-web-api": "^0.11.0",
-    "angular-resizable-element": "^3.3.5",
     "handsontable": "^8.3.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
