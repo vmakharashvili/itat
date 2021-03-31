@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
     console.log(changes, source);
     if (changes) {
       const changeId = changes?.length > 0 ? changes[0][0] : 0;
-      debugger;
       this.editData(changeId, changes[0][1].toString(), changes[0][3]);
     }
   }
@@ -41,10 +40,11 @@ export class HomeComponent implements OnInit {
     const val = this.data.find(x => x.id === rowIndex + 1);
     if (val) {
       val[column] = value;
-      console.log(val);
-      this.api.editTableData(val).subscribe(_ => {
-        this.getData();
-      });
+      setTimeout(() => {
+        this.api.editTableData(val).subscribe(_ => {
+          this.getData();
+        });
+      }, 40);
     }
   }
 
